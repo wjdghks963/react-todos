@@ -5,6 +5,7 @@ import CreateToDo from "./CreateToDo";
 import ToDo from "./ToDo";
 
 function ToDoList() {
+  // atoms에 있는 toDoState<IToDo[]>를 이용한다.
   const toDos = useRecoilValue(toDoState);
 
   return (

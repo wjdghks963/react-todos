@@ -10,11 +10,12 @@ function CreateToDo() {
   const setToDos = useSetRecoilState(toDoState);
   const { register, handleSubmit, setValue } = useForm<IForm>();
   const handleValid = ({ toDo }: IForm) => {
+    // toDo안에 있는 data를 setToDos를 이용해 object를 설정해 넣는다.
     setToDos((oldToDos) => [
       { text: toDo, id: Date.now(), category: "TO_DO" },
       ...oldToDos,
     ]);
-    setValue("toDo", "");
+    setValue("toDo", ""); // toDo입력칸을 빈칸으로
   };
   return (
     <form onSubmit={handleSubmit(handleValid)}>
