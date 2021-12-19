@@ -7,11 +7,11 @@ import { darkTheme } from "./theme";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={darkTheme}>
-      <RecoilRoot>
+    <RecoilRoot>
+      <ThemeProvider theme={darkTheme}>
         <App />
-      </RecoilRoot>
-    </ThemeProvider>
+      </ThemeProvider>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById("root")
 );

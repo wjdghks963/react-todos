@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
 import { toDoState } from "../atoms";
+import React from "react";
 
 interface IForm {
   toDo: string;
@@ -23,6 +24,7 @@ function CreateToDo() {
         {...register("toDo", { required: "할 일을 적어주세요" })}
         placeholder="To Do"
       />
+      <button>Add</button>
     </form>
   );
 }

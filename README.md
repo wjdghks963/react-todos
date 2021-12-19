@@ -70,3 +70,20 @@ const modFn = useSetRecoilState(toDoState);
 1. useRecoilValue : value를 이용하고 싶을때
 2. useSetRecoilState: value를 set하고 싶을때
 3. useRecoilState : value를 useState와 같은 기능을 쓰고 싶을때
+
+### atom
+
+```javascipt
+export const toDoState = atom<IToDo[]>({
+  key: "toDo",
+  default: [],
+});
+```
+
+1. key는 내부적으로 atom을 식별하는데 사용되는 고유한 문자열. 다른 atom과 selector에 대해 고유해야함.
+
+2. defalut는 **atom의 초깃값** Promise또는 동일한 타입의 값을 나타내는 다른 atom이나 selecotr
+
+### atom selector
+
+atom의 output을 변형시키는 도구
