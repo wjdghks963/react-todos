@@ -86,4 +86,39 @@ export const toDoState = atom<IToDo[]>({
 
 ### atom selector
 
-atom의 output을 변형시키는 도구
+atom의 state를 가져와서 output을 변형시키는 도구
+get()을 사용해 상태들을 가져오고 그것들을 사용해 output을 낸다.
+
+---
+
+---
+
+## enum
+
+기본적으로 내용물을 일련의 숫자로 표현해줌
+따라서 내부 내용을 str로 표현하더라도 str이 아니라 실제값은 숫자로 코딩이 된다.
+
+default가 TO_DO인 상황이면 밑과 같은 식으로 된다.
+
+```javascript
+export enum Categories {
+  "TO_DO",
+  "DOING",
+  "DONE"
+}
+
+export const categoryState = atom<Categories>({
+  key:"category",
+  default: 0
+})
+```
+
+따라서 실제값이 이것이다라고 말해줘야한다.
+
+```javascript
+export enum Categories {
+  "TO_DO"="TO_DO",
+  "DOING"="DOING",
+  "DONE"="DONE"
+}
+```
