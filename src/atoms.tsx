@@ -12,9 +12,11 @@ export interface IToDo {
   id: number;
 }
 
+const localStorageToDos = localStorage.getItem("ToDos");
+const parsedToDos = JSON.parse(localStorageToDos as any);
 export const toDoState = atom<IToDo[]>({
   key: "toDo",
-  default: [],
+  default: parsedToDos ? parsedToDos : [],
 });
 
 export const categoryState = atom<Categories>({

@@ -17,6 +17,19 @@ function ToDo({ text, category, id }: IToDo) {
       return newToDos;
     });
   };
+  const handleDeleteToDo = ()=>{
+    setToDos((oldToDos) => {
+      const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
+      let final =  [
+        ...oldToDos.slice(0, targetIndex),
+        ...oldToDos.slice(targetIndex + 1),
+      ];
+       const local = localStorage.setItem("ToDos", final as any)
+       const parsedToDos = JSON.parse(local as any)
+       return final
+    });
+  }
+
   return (
     <li>
       <span>{text}</span>
@@ -35,6 +48,7 @@ function ToDo({ text, category, id }: IToDo) {
           Done
         </button>
       )}
+        <button onClick={handleDeleteToDo}>❌</button>
     </li>
   );
 }
