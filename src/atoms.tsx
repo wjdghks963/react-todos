@@ -29,6 +29,7 @@ export const toDoSelector = selector({
   get: ({ get }) => {
     const toDos = get(toDoState);
     const category = get(categoryState)
+    // toDo의 카테고리와 category가 같은 값들을 filter한다.
     return  toDos.filter((toDo) => toDo.category === category);
   },
 });

@@ -89,6 +89,35 @@ export const toDoState = atom<IToDo[]>({
 atom의 state를 가져와서 output을 변형시키는 도구
 get()을 사용해 상태들을 가져오고 그것들을 사용해 output을 낸다.
 
+```javascript
+export const toDoSelector = selector({
+  key: "toDoSelector",
+  get: ({ get }) => {
+    const toDos = get(toDoState);
+    const category = get(categoryState);
+    return toDos.filter((toDo) => toDo.category === category);
+  },
+});
+```
+
+set()
+
+set을 설정하면 array를 반환하는 useRecoilState를 사용가능하다.
+array의 첫번째 요소는 get proprty로부터 return한 값, 두번째 요소는 set property를 실행시키는 함수
+
+```javascript
+const toDoSelector = selector({
+  get: ({ get }) => {
+    const something = get(state);
+    return something / 3;
+  },
+  set: ({ set }, newValue) => {
+    const somethingChange = newValue * 60;
+    set(state, somethingChange);
+  },
+});
+```
+
 ---
 
 ---
@@ -122,3 +151,7 @@ export enum Categories {
   "DONE"="DONE"
 }
 ```
+
+### JS tip
+
+"1"을 숫자로 => +"1" => 1

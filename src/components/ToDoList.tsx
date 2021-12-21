@@ -5,6 +5,7 @@ import CreateToDo from "./CreateToDo";
 import ToDo from "./ToDo";
 
 function ToDoList() {
+  // filter된 값인 selector를 가져오고 category는 input에 따라 값이 달라진다.
   const toDos = useRecoilValue(toDoSelector);
   const [category,setCategory] = useRecoilState(categoryState);
   const onInput = (event:React.FormEvent<HTMLSelectElement>) =>{
