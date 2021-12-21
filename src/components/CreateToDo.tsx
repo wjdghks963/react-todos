@@ -18,8 +18,6 @@ function CreateToDo() {
       { text: toDo, id: Date.now(), category },
       ...oldToDos,
     ];
-    console.log(allTodos)
-
     localStorage.setItem("ToDos", JSON.stringify(allTodos) as any);
     return allTodos;
   }

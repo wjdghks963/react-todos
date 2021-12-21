@@ -24,8 +24,7 @@ function ToDo({ text, category, id }: IToDo) {
         ...oldToDos.slice(0, targetIndex),
         ...oldToDos.slice(targetIndex + 1),
       ];
-       const local = localStorage.setItem("ToDos", final as any)
-       const parsedToDos = JSON.parse(local as any)
+       localStorage.setItem("ToDos", JSON.stringify(final) as any)
        return final
     });
   }
